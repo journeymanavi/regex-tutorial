@@ -1,0 +1,53 @@
+<div class="section-title-box"><%sectionContent.title%></div>
+
+<div class="problem-links">
+	<% FOR problem IN problems %>
+		<%IF problem.active%>
+			<span class="active-problem-link" href="#nogo">Problem <%problem.id%></span>
+		<%ELSE%>
+			<a class="problem-link" 
+			href="/sectionContent/<%sectionId%>/<%problem.id%>">Problem <%problem.id%></a>
+		<% END %>
+	<% END %>
+</div>
+
+<!-- <div class="problem-title">Problem Definition</div><div class="clear"></div> -->
+<div class="problem-box"><% sectionContent.problem %></div>
+
+<!-- <div class="solution-title">Regex Solution</div><div class="clear"></div> -->
+<div class="solution-box">
+	<form action="/sectionContent/<%sectionId%>/<%problemId%>" method="post" accept-charset="utf-8">
+		<input class="regex-text-box" type="text" name="regex" value="<%IF regex%><%regex%><%END%>" placeholder="type your regex here">
+		<input class="test-it-btn" type="submit" value="Test!">
+	</form>
+</div>
+
+<!-- <div class="tests-title">Tests</div><div class="clear"></div> -->
+<div class="tests-box">
+	<% IF badPattern %>
+		<span class="bad-pattern-msg">The pattern you entered is not valid!</span>
+	<% ELSE %>
+		<table class="test-result-table" width="100%">
+			<tr>
+				<td><div class="test-string-head">Test String</div></td>
+				<td><div class="expected-head">Match Expected</div></td>
+				<td><div class="result-head">Result</div></td>
+			</tr>
+			<% FOREACH test IN sectionContent.tests %>
+			<tr>
+				<td><div class="test-string"><pre><%test.string%><pre></div></td>
+				<td><% IF test.expected %>
+					<div class="expected expected-y">YES</div>
+				<% ELSE %>
+					<div class="expected expected-n">NO</div>
+				<% END %></td>
+				<td><% IF test.result %>
+					<div class="result result-p">PASS</div>
+				<% ELSE %>
+					<div class="result result-f">FAIL</div>
+				<% END %></td>
+			</tr>
+			<% END %>
+		</table>
+	<% END %>
+</div>

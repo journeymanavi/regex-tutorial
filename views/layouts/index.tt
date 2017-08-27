@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
+	<title>RegEx tutorial</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div>
+		<div class="nav-pane">
+			<a class="<% IF sectionId == 'literals' %>nav-active<%ELSE%>nav-inactive<%END%>" href="/sectionContent/literals/1">Literals</a>
+			<a class="<% IF sectionId == 'anything' %>nav-active<%else%>nav-inactive<%END%>" href="/sectionContent/anything/1"><em>(almost)</em> Anything</a>
+			<a class="<% IF sectionId == 'anchor' %>nav-active<%else%>nav-inactive<%END%>" href="/sectionContent/anchor/1">Anchors</a>
+			<a class="<% IF sectionId == 'char-classes' %>nav-active<%else%>nav-inactive<%END%>" href="/sectionContent/char-classes/1">Character Classes</a>
+			<a class="<% IF sectionId == 'quantifiers' %>nav-active<%else%>nav-inactive<%END%>" href="/sectionContent/quantifiers/1">Quantifiers</a>
+			<a class="<% IF sectionId == 'grouping' %>nav-active<%else%>nav-inactive<%END%>" href="/sectionContent/grouping/1">Grouping</a>
+			<a class="<% IF sectionId == 'alternation' %>nav-active<%else%>nav-inactive<%END%>" href="/sectionContent/alternation/1">Alternation</a>
+			<a class="<% IF sectionId == 'capturing' %>nav-active<%else%>nav-inactive<%END%>" href="/sectionContent/capturing/1">Capturing, Backreference & Modifiers</a>
+			<a class="<% IF sectionId == 'look-around' %>nav-active<%else%>nav-inactive<%END%>" href="#">Look Around</a>
+		</div>
+		<div class="content-pane">
+			<% content %>
+		</div>
+		<div class="footer">
+			<span class="copyright">
+				&copy; <a href="http://in.linkedin.com/pub/avinash-agrawal/41/280/65b">Avi</a>
+			</span>
+			<span class="dancer">Powered by <a href="http://perldancer.org">Perl Dancer<a></span>
+		</div>
+	</div>
+</body>
+</html>
